@@ -5,7 +5,7 @@ html {
   
   body {
     margin-bottom: 80px;
-    background-image: url("../images/paper.png");
+   
   }
   
   .footer {
@@ -43,8 +43,8 @@ html {
   
   .jumbotron .background-image {
     height: 100%;
-    background-image: url("../images/newspaper.jpg");
-    background-size: cover;
+    background-image: url("../images/paper.png");
+    background-repeat: no-repeat;
   }
   
   .jumbotron .caption {
