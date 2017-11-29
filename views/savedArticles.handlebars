@@ -27,6 +27,7 @@
     <div class="container-fluid article-container">
     
     </div>
-    <div class="container">
-        <p>New York Times Mongo Scraper</p>
+     <div class="container-fluid article-container">
+        {{#each article}} {{> savedArticles/saved-articles}} {{/each}}
     </div>
+</div>
