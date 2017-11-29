@@ -1,34 +1,31 @@
- <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Mongo Scraper</a>
+<div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">Sports News Scraper</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active">
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/saved">Saved Articles</a>
+        </li>
+        <li>
+            <a class="btn btn-danger scrape-new" href="/scrape">SCRAPE NEW ARTICLES!</a>
+        </li>
+    </ul>
+</div>
+
+<div class="overlay">
+</div>
+<div class="container">
+    <div class="jumbotron background-image">
+        <div class="caption">
+            <h1 class="text-center">Sports News Scraper </h1>
+            <p class="text-center">Daily sports updates for sports fans</p>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active">
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/saved">Saved Articles</a>
-            </li>
-            <li>
-                <a class="btn btn-danger scrape-new" href ="/scrape">SCRAPE NEW ARTICLES!</a>
-            </li>
-        </ul>
     </div>
-   
- <div class="overlay">
-    </div>
-    
-    <div class = "jumbotron background-image">
-    <div class="caption">
-        <h1 class = "text-center">Mongo Scraper</h1>
-        <p class = "text-center">New York Times Edition</p>
-    </div>
-    </div>
+
     <div class="container-fluid article-container">
-        {{#each article}}
-              {{> scrapedArticles/scraped-articles}}
-        {{/each}}
+        {{#each article}} {{> scrapedArticles/scraped-articles}} {{/each}}
     </div>
-    <div class="container">
-        <p>New York Times Mongo Scraper</p>
-    </div>
+</div>
