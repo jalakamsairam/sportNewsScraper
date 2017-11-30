@@ -26,20 +26,32 @@ router.put("/:id", function (req, res) {
     if (err) { console.log(error) }
     res.end();
   })
+});
+
+router.post("/saved/:id",function(req,res){
+  db.Article.create(req.body)
+  .then(function(dbNote){
+    res.json(dbNote)
+  }).catch(function(dbNote){
+    return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+  }).then(function(dbArticle) {
+    res.json(dbArticle);
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
 })
 
 router.get("/scrapesuccessful", function (req, res) {
   res.render("scrapesuccessful")
-})
+});
 
 router.get("/saved", function (req, res) {
     db.Article.find({isSaved:true}).then(function(dbArticles){
       console.log("the articles from the database are",dbArticles);
       res.render("savedArticles",{article:dbArticles})
     })
-    
- 
-})
+});
 
 router.get("/scrape", function (req, res) {
   axios.get("http://www.sportsonearth.com/").then(function (response) {
@@ -55,9 +67,9 @@ router.get("/scrape", function (req, res) {
           console.log(i)
           // res.render("scrapesuccessful");
           res.redirect("/scrapesuccessful");
-        })//.catch(function(error){
-      //   res.json(error);
-      // })
+        }).catch(function(error){
+        res.json(error);
+       })
     })
   })
 })
