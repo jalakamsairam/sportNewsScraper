@@ -9,7 +9,7 @@ var cheerio = require("cheerio");
 router.get("/", function (req, res) {
   console.log("inside the '/'");
   console.log(req, res);
-  db.Article.find({}).then(function (dbarticle) {
+  db.Article.find({}).where("isSaved").equals("false").then(function (dbarticle) {
     console.log("the articles from database are", dbarticle);
     res.render("index", { article: dbarticle });
   }).catch(function (err) {

@@ -16,7 +16,7 @@ $(document).on("click", ".save", function (event) {
 $(document).on("click",".classSaved",function(event){
     event.preventDefault();
     var id = this.id
-    $(document).on("click",".saveNote",function(event) {
+    $("#noteModal").on("submit",function(event) {
         event.preventDefault();
         console.log(id);
         var that = this;
@@ -27,10 +27,30 @@ $(document).on("click",".classSaved",function(event){
             method:"POST",
             data:{
                 title:title, 
-                note:note
+                body:note
             }
         }).done(function(response){
-            console.log("article has been saved")
-        })
-    })
-})
+            alert("note has been saved")
+            window.location.reload();
+        });
+    });
+});
+
+$(document).on("click",".classSaved",function(event){
+    event.preventDefault();
+    var id = this.id;
+    $.ajax({
+        url:"/saved/"+id,
+        method:"GET"
+    }).done(function(response){
+        if(response){
+            console.log(response);
+            console.log(response.note.title);
+            $("#title").text(response.note.title);
+            $("#note").text(response.note.body);
+            }
+        else{
+            console.log("you  dont have a note");
+        }
+    });
+});

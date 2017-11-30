@@ -19,18 +19,18 @@
                 </div>
                 <div class = "modal-body">
                     <div class = "form-group">
-                        <form role="form">
+                <form role="form" id = "modalForm">
                   <div class="form-group">
                     <label for="title">title</label>
-                      <input type="title" class="form-control"
-                      id="title" placeholder="enter the title here"/>
+                      <textarea class="form-control"
+                      id="title" rows = "1" placeholder="enter the title here" required></textarea>
                   </div>
                   <div class="form-group">
                     <label for="note">note</label>
-                      <textarea class="form-control" rows="10" id="note" placeholder="enter the text here" ></textarea>
+                      <textarea class="form-control" rows="10" id="note" placeholder="enter the text here" required></textarea>
                   </div>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success saveNote">Save</button>
+                  <input type="submit" class="btn btn-success saveNote" value = "save"/>
                 </form>
                     </div>
                 </div>
