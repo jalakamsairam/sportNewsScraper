@@ -7,7 +7,6 @@ $(document).on("click", ".save", function (event) {
         method: "PUT",
     }).done(function (response) {
         console.log(that);
-        debugger;
         $(that).html("isSaved");
         $(that).attr("class", "btn btn-warning save");
         $(that).prop("disabled", true);
@@ -54,3 +53,15 @@ $(document).on("click",".classSaved",function(event){
         }
     });
 });
+
+$(document).on("click",".delete",function(event){
+    event.preventDefault();
+    var id = this.id;
+    console.log(id);
+    $.ajax({
+        url:"/saved/"+id,
+        method:"PUT"
+    }).done(function(response){
+        window.location.reload();
+    })
+})// 

@@ -23,7 +23,7 @@ router.put("/:id", function (req, res) {
   console.log(query);
   // console.log(title);
   db.Article.findByIdAndUpdate(query, { $set: { 'isSaved': true } }, function (err, data) {
-    if (err) { console.log(error) }
+    if (err) { console.log(err) }
     res.end();
   })
 });
@@ -57,6 +57,16 @@ router.get("/saved/:id",function(req,res){
     res.json(err);
   });
 });
+
+router.put("/saved/:id",function(req,res){
+  var query = { _id: (req.params.id) }
+  console.log(req.params.id);
+  console.log(query);
+  db.Article.findByIdAndUpdate(query, { $set: { 'isSaved': false} }, function (err, data) {
+    if (err) { console.log(err) }
+    res.redirect("/saved");
+  })
+})
 
 router.get("/scrapesuccessful", function (req, res) {
   res.render("scrapesuccessful")
