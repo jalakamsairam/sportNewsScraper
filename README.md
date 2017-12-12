@@ -30,7 +30,7 @@ Load https://quiet-peak-66974.herokuapp.com/
 * Express.js
 * Node.js
 * Mongoose.js- Models
-* React.js - Rendering
+* express-handlebars.js - Rendering
 * Javascript- Back-End Scripting
 * MongoDB- Database Management
 
