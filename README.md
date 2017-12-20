@@ -6,13 +6,6 @@ Full stack application where users can read latest sports news from most popular
 
 Clone repo and install NPM packages:
 
-git clone https://github.com/dbmarshall/nyt-react.git
-cd nyt-react/
-yarn install 
-cd client/
-yarn install 
-cd ../
-Start server (local environment only):nodemon server.js
 
 yarn start
 Load local or Heroku deployment (see below), then enter search terms, save articles, and create annotations for saved articles.
